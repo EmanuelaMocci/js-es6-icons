@@ -113,28 +113,157 @@ const icons = [
 	},
   ];
 
+// FUNZIONI
+// argomenti: array delle icone e il node html in cui stamare le icone
+const printIcons = (arr, container) => {
+    // crea un ciclo for each ed inserisci nell'html utilizzando in template literal
+    // Utilizzando la destrutturazione
+    arr.forEach((element)=>{
+        const {name, family, prefix, color} = element;
+        container.innerHTML += `
+        <div class="icone">
+            <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
+            <div>${name}</div>    
+        </div>
+        `
+    });
+}
+
+// PROGRAMMA PRINCIPALE
+
+// prendi l'elemento dall'html utilizzando una variabile
+const tessere = document.getElementById("tessera");
+
+
+// Milestone 2
+// Coloriamo le icone per tipo
+
+// Assegnare una variabile con oggetto la categoria e il colore
+
+const coloriIcone = {
+    food: 'red',
+    beverage: 'blue',
+    animal: 'green'
+}
+console.log(coloriIcone);
+
+// Assegna una variabile e utilizza map
+
+const colors = icons.map((element) => {
+    console.log(element.category);
+    
+        return {
+            ...element,
+            color: coloriIcone[element.category]
+        };
+});
+console.log(colors);
+
+printIcons(colors, tessere);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const colori = {
 //     food: 'red',
 //     animal:'green',
 //     beverage: 'yellow'
 // }
 
-// prendi l'elemento dall'html utilizzando una variabile
-const tessere = document.getElementById("tessera");
-// crea un ciclo for each ed inserisci nell'html utilizzando in template literal
-const icona = icons.forEach((element)=>{
-    tessere.innerHTML += `
-    <div class="icone">
-        <i class="${element.family} ${element.prefix}${element.name}"></i>
-        <div>${element.name}</div>    
-    </div>
-    `
-});
+// Assegna una variabile e utilizza map
+
+// const coloreIcone = icons.map(
+//     (elm) => {
+//         elm.color = colori[elm.category];
+//         return elm;
+//     }
+// );
+// console.log(coloreIcone);
 
 
 
 
 
+
+
+
+
+
+
+// // estrapolo le categoria dalle icone
+// const categoria = [];
+// icons.forEach(
+//     (elm) => {
+//         if (categoria.includes(elm.category) == false){
+//             categoria.push(elm.category);
+//         }
+//     }
+// );
+// console.log(categoria);
+
+// // creo option per ogni categoria
+// const select = document.getElementById("category");
+
+// categoria.forEach(
+//     (elm) => {
+//         select.innerHTML += `<option value="${elm}">${elm}</option>`;
+//     }
+// );
+
+// Creo evento change sulla select
+// select.addEventListener("change",
+//     function(){
+//         // Recupero il valore della select
+//         const iconsFiltered = coloreIcone.filter(
+//             (elm) => {
+//                 if (elm.category == select.value || select.value == "") {
+//                     return true;
+//                 }
+//                 return false;
+//             } 
+//         );
+//         printIcons(iconsFiltered, containerIcons);
+//     }
+// );
+
+
+
+
+
+
+
+
+// Alternativa abbreviata 
+
+// const icona = document.getElementById("tessera");
+
+// const tessere = icons.forEach((element) =>{
+//     const {family, prefix, name, color} = element;
+//     icona.innerHTML += `
+//     <div class="icone">
+//     <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
+//     <div>${name}</div>    
+//     </div>  `
+// })
 
 
 
