@@ -1,0 +1,58 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+/* Header */
+.header-top{
+    height: 70px;
+}
+header .header-bottom span{
+    letter-spacing: 1px;
+}
+h1{
+    font-family: 'Acme', sans-serif;
+    color:  rgb(41, 177, 221);
+    font-size: 35px;
+    padding: 20px;
+}
+.header-bottom{
+    text-align: center;
+    background-color: rgb(41, 177, 221);
+    color: white;
+    height: 70px;
+    line-height: 70px;
+}
+/* /Header */
+
+/* Main */
+main{
+    background-color: lightgray;
+    height: calc(100% - 140px)
+}
+/* /Main */
+.tessera .icone i{
+    color: yellow;
+    font-size: 30px;
+}
+.tessera .icone div{
+    font-size: 15px;
+}
+.tessera{
+    padding-top: 20px;
+}
+.icone{
+    width: calc(100% / 5 - 20px);
+    height: 80px;
+    box-shadow: 5px 5px 5px #888888;
+    background-color: white;
+    border-radius: 5px;
+    margin:  0 10px;
+    text-align: center;
+    padding-top: 15px;
+}
