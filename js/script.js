@@ -118,6 +118,6 @@ const tessere = icons.forEach((element) =>{
     icona.innerHTML += `
     <div class="icone">
     <i class="${element.family} ${element.prefix}${element.name}"></i>
-    <div>${element.category}</div>    
+    <div>${element.name}</div>    
     </div>  `
 })
