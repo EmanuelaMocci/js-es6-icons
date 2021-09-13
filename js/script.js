@@ -112,12 +112,30 @@ const icons = [
 	  category: "animal"
 	},
   ];
-const icona = document.getElementById("tessera");
 
-const tessere = icons.forEach((element) =>{
-    icona.innerHTML += `
+// const colori = {
+//     food: 'red',
+//     animal:'green',
+//     beverage: 'yellow'
+// }
+
+// prendi l'elemento dall'html utilizzando una variabile
+const tessere = document.getElementById("tessera");
+// crea un ciclo for each ed inserisci nell'html utilizzando in template literal
+const icona = icons.forEach((element)=>{
+    tessere.innerHTML += `
     <div class="icone">
-    <i class="${element.family} ${element.prefix}${element.name}"></i>
-    <div>${element.name}</div>    
-    </div>  `
-})
+        <i class="${element.family} ${element.prefix}${element.name}"></i>
+        <div>${element.name}</div>    
+    </div>
+    `
+});
+
+
+
+
+
+
+
+
+
