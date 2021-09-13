@@ -45,6 +45,9 @@ main{
 }
 .tessera{
     padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 .icone{
     width: calc(100% / 5 - 20px);
@@ -52,7 +55,7 @@ main{
     box-shadow: 5px 5px 5px #888888;
     background-color: white;
     border-radius: 5px;
-    margin:  0 10px;
+    margin: 10px;
     text-align: center;
     padding-top: 15px;
 }
