@@ -118,6 +118,7 @@ const icons = [
 const printIcons = (arr, container) => {
     // crea un ciclo for each ed inserisci nell'html utilizzando in template literal
     // Utilizzando la destrutturazione
+    container.innerHTML = "";
     arr.forEach((element)=>{
         const {name, family, prefix, color} = element;
         container.innerHTML += `
@@ -161,109 +162,43 @@ console.log(colors);
 
 printIcons(colors, tessere);
 
+// Milestone 3
+// Creiamo una select con i tipi di icone e usiamola per filtrare le icone
+// estrapolo le categoria dalle icone
+const iconCategories = [];
+icons.forEach(
+    (element) => {
+        if(iconCategories.includes(element.category) == false){
+            iconCategories.push(element.category);
+        }
+    }
+);
 
+//creo option per ogni categoria
+const select = document.getElementById("category");
 
+iconCategories.forEach(
+    (element) => {
+        select.innerHTML += `<option value="${element}">${element}</option>`;
+    }
+);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const colori = {
-//     food: 'red',
-//     animal:'green',
-//     beverage: 'yellow'
-// }
-
-// Assegna una variabile e utilizza map
-
-// const coloreIcone = icons.map(
-//     (elm) => {
-//         elm.color = colori[elm.category];
-//         return elm;
-//     }
-// );
-// console.log(coloreIcone);
-
-
-
-
-
-
-
-
-
-
-
-// // estrapolo le categoria dalle icone
-// const categoria = [];
-// icons.forEach(
-//     (elm) => {
-//         if (categoria.includes(elm.category) == false){
-//             categoria.push(elm.category);
-//         }
-//     }
-// );
-// console.log(categoria);
-
-// // creo option per ogni categoria
-// const select = document.getElementById("category");
-
-// categoria.forEach(
-//     (elm) => {
-//         select.innerHTML += `<option value="${elm}">${elm}</option>`;
-//     }
-// );
-
-// Creo evento change sulla select
-// select.addEventListener("change",
-//     function(){
-//         // Recupero il valore della select
-//         const iconsFiltered = coloreIcone.filter(
-//             (elm) => {
-//                 if (elm.category == select.value || select.value == "") {
-//                     return true;
-//                 }
-//                 return false;
-//             } 
-//         );
-//         printIcons(iconsFiltered, containerIcons);
-//     }
-// );
-
-
-
-
-
-
-
-
-// Alternativa abbreviata 
-
-// const icona = document.getElementById("tessera");
-
-// const tessere = icons.forEach((element) =>{
-//     const {family, prefix, name, color} = element;
-//     icona.innerHTML += `
-//     <div class="icone">
-//     <i class="${family} ${prefix}${name}" style="color: ${color}"></i>
-//     <div>${name}</div>    
-//     </div>  `
-// })
+// Creo l'evento change 
+select.addEventListener("change",
+    function(){
+        // Recupero il valore della select
+        console.log(select.value);
+        const iconsFiltered = colors.filter(
+            (element) => {
+                if (element.category == select.value || select.value == ""){
+                    return true;
+                }
+                return false;
+            }
+        );
+        printIcons(iconsFiltered, tessere);
+    }
+);
 
 
 
